@@ -3,8 +3,13 @@ package com.example.demo.uss.domain;
 
 import javax.persistence.*;
 
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name = "users")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User {
 
 	@Id
@@ -12,8 +17,11 @@ public class User {
 	@Column(name = "user_no")
 	private long userNo;
 
-	@Column(name = "name")
-	private String name;
+	@Column(name = "first_name")
+    private String firstName;
+    
+    @Column(name = "last_name")
+	private String lastName;
 
 	@Column(name = "password")
 	private String password;
@@ -35,4 +43,18 @@ public class User {
 
     @Column(name = "phone_number")
     private String phoneNumber;
+
+    public User(String firstName, String lastName, String birthday, String email,String gender,String phoneNumber){
+        super();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.email = email;
+        this.gender = gender;
+        this.regdate = regdate;
+        this.phoneNumber = phoneNumber
+    }
+
+   
+
 }
