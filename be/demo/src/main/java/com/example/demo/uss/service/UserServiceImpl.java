@@ -6,12 +6,17 @@ import java.util.Optional;
 
 import com.example.demo.uss.domain.User;
 import com.example.demo.uss.domain.UserDto;
+import com.example.demo.uss.repository.UserRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService{
 
+    @Autowired
+    private UserRepository repository;
+    
     @Override
     public Optional<User> findOne(User t) {
         // TODO Auto-generated method stub
@@ -55,15 +60,10 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User save(UserDto entity) {
+    public void register(UserDto dto) {
         // TODO Auto-generated method stub
-        return null;
+        repository.save(dto.toEntity());
     }
 
-    @Override
-    public Map<String, Object> checkLoginIdDup(String userName) {
-        // TODO Auto-generated method stub
-        return null;
-    }
     
 }
