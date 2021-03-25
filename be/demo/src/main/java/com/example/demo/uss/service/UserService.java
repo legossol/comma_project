@@ -16,5 +16,6 @@ public interface UserService {
 	public void deleteById(long id);
 	public User getOnt(long id);
 	public User save(UserDto entity);
+    public Map<String, Object> checkLoginIdDup(String userName);
     
 }

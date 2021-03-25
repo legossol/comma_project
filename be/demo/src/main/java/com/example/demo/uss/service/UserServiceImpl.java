@@ -1,13 +1,15 @@
 package com.example.demo.uss.service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import com.example.demo.uss.domain.User;
 import com.example.demo.uss.domain.UserDto;
 
 import org.springframework.data.domain.Sort;
-
+import org.springframework.stereotype.Service;
+@Service
 public class UserServiceImpl implements UserService{
 
     @Override
@@ -54,6 +56,12 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User save(UserDto entity) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Map<String, Object> checkLoginIdDup(String userName) {
         // TODO Auto-generated method stub
         return null;
     }

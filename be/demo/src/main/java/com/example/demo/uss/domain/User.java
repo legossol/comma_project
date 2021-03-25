@@ -23,13 +23,13 @@ public class User {
     @Column(name = "last_name")
 	private String lastName;
 
-	@Column(name = "password")
+	@Column(name = "password", nullable = false, length = 64)
 	private String password;
 
 	@Column(name = "username")
 	private String username;
 
-	@Column(name = "email")
+	@Column(name = "email", nullable = false, unique = true, length = 45)
 	private String email;
 	
 	@Column(name = "birthday")
@@ -44,7 +44,8 @@ public class User {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    public User(String firstName, String lastName, String birthday, String email,String gender,String phoneNumber){
+	@Builder
+    public User(String firstName, String lastName, String birthday, String email,String gender, String regdate,String phoneNumber){
         super();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -52,7 +53,7 @@ public class User {
         this.email = email;
         this.gender = gender;
         this.regdate = regdate;
-        this.phoneNumber = phoneNumber
+        this.phoneNumber = phoneNumber;
     }
 
    
