@@ -2,10 +2,7 @@
 package com.example.demo.uss.domain;
 
 import javax.persistence.*;
-
-import lombok.AccessLevel;
 import lombok.Builder;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "users")
@@ -19,16 +16,16 @@ public class User {
 	@Column(name = "name")
 	private String name;
 
-	@Column(name = "password", nullable = false, length = 64)
+	@Column(name = "password", length = 64)
 	private String password;
 
-	@Column(name = "username", nullable = false)
+	@Column(name = "username")
 	private String username;
 
 	@Column(name = "age")
 	private String age;
 
-	@Column(name = "email", nullable = false, unique = true, length = 45)
+	@Column(name = "email", unique = true, length = 45)
 	private String email;
 	
 	@Column(name = "birthday")
@@ -40,11 +37,11 @@ public class User {
 	@Column(name = "regdate")
     private String regdate;
 
-    @Column(name = "phone_number")
-    private String phoneNumber;
+    @Column(name = "phone")
+    private String phone;
 
 	@Builder
-    public User(String name,String userName, String password, String age ,String birthday, String email,String gender, String regdate,String phoneNumber){
+    public User(String name,String userName, String password, String age ,String birthday, String email,String gender, String regdate,String phone){
 		super();
         this.name = name;
 		this.username = userName;
@@ -54,7 +51,7 @@ public class User {
 		this.age = age;
         this.gender = gender;
         this.regdate = regdate;
-        this.phoneNumber = phoneNumber;
+        this.phone = phone;
     }
 
    

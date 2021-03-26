@@ -1,15 +1,8 @@
 package com.example.demo.uss.service;
-
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-
-import com.example.demo.uss.domain.User;
 import com.example.demo.uss.domain.UserDto;
 import com.example.demo.uss.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService{
@@ -18,52 +11,13 @@ public class UserServiceImpl implements UserService{
     private UserRepository repository;
     
     @Override
-    public Optional<User> findOne(User t) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public long count() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public boolean existsById(long id) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public List<UserDto> findAll(Sort sort) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Optional<UserDto> findOne() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public void deleteById(long id) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public User getOnt(long id) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
     public void register(UserDto dto) {
-        // TODO Auto-generated method stub
         repository.save(dto.toEntity());
-    }
+    }    
 
+    @Override
+    public void pushSampleData(UserDto dto){
+        repository.sampleData("해솔", "ssol", "1234", "ssol@gamil.com", "30", "1992-04-25", "M", "2021-02-21", "01049380425");
+    }
     
 }
