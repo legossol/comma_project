@@ -7,7 +7,6 @@ import com.example.demo.uss.domain.UserDto;;
 
 public interface UserService {
 
-	
 	List<User> findUserAll();
-	
+	User addUser(User user);
 }
