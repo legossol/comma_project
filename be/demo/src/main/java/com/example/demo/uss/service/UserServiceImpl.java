@@ -4,11 +4,8 @@ import java.util.Optional;
 
 import com.example.demo.cmm.service.AbstractService;
 import com.example.demo.uss.domain.User;
-import com.example.demo.uss.domain.UserDto;
 import com.example.demo.uss.repository.UserRepository;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -20,12 +17,6 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 
     @Override
     public List<User> findUserAll() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public User addUser(User user) {
         // TODO Auto-generated method stub
         return null;
     }

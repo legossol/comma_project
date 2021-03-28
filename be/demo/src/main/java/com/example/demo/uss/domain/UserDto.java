@@ -13,7 +13,7 @@ public class UserDto implements Serializable{
     private static final long serialVersionUID = 1L;
 	private long userNo;
 	private String name;
-	private String username;
+	private String userName;
 	private String password;
 	private String email;
 	private String age;
@@ -26,8 +26,8 @@ public class UserDto implements Serializable{
 	public User toEntity(){
 		return User.builder()
 		.name(name).age(age)
-		.userName(username).password(password).email(email).birthday(birthday)
-		.gender(gender).regdate(regdate).phone(phone)
+		.userName(userName).password(password).email(email).birthday(birthday)
+		.gender(gender).phone(phone)
 		.build();
 	}
 }

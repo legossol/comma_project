@@ -6,15 +6,13 @@ const App =()=> {
       alert('테스트')
       axios.post(`http://localhost:8080/users/join`,
       {
-        "userNo": "1",
         "name" : "해솔",
-        "username": "ssol",
+        "userName": "ssol",
         "password": "1234",
         "email" : "age",
         "age": "21",
         "birthday":"20120202",
         "gender": "M",
-        "regdate" : "20210202",
         "phone": "01049494838"
       })
         .then(res=>{
