@@ -5,34 +5,41 @@ import java.time.LocalDateTime;
 
 import javax.persistence.*;
 
+import com.amazonaws.services.alexaforbusiness.model.UserData;
+
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@Component
 @Entity
+@NoArgsConstructor
+@Getter
 @Table(name = "users")
-@AllArgsConstructor 
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_no")
-	private long userNo;
+	@GeneratedValue
+	@Column(name = "no")
+	private long no;
 
 	@Column(name = "name")
 	private String name;
 
-	@Column(name = "password", length = 64)
+	@Column(name = "password")
 	private String password;
 
-	@Column(name = "user_name")
-	private String userName;
+	@Column(name = "id")
+	private String id;
 
 	@Column(name = "age")
 	private String age;
 
-	@Column(name = "email", unique = true, length = 45)
+	@Column(name = "email")
 	private String email;
 	
 	@Column(name = "birthday")
@@ -42,23 +49,26 @@ public class User {
 	private String gender;
 	
 	@CreationTimestamp
-	@Column(name = "reg_date", nullable = false, updatable = false)
-	private LocalDateTime regDate;
+	@Column(name = "date")
+	private LocalDateTime date;
 
     @Column(name = "phone")
-    private String phone;
-
+	private String phone;
+	
 	@Builder
-    public User(String name,String userName, String password, String age ,String birthday, String email,String gender, String phone){
+	public User(String name,String id, String password, String age ,
+	 String email, String birthday,String gender, String phone,Long no,LocalDateTime date){
 		super();
-        this.name = name;
-		this.userName = userName;
+		this.name = name;
+		this.id = id;
 		this.password = password;
-		this.birthday = birthday;
 		this.email = email;
+		this.birthday = birthday;
+		this.gender = gender;
 		this.age = age;
-        this.gender = gender;
-        this.phone = phone;
+		this.phone = phone;
+		this.no = no;
+		this.date = date;
     }
 
    

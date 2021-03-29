@@ -6,10 +6,10 @@ const App =()=> {
       alert('테스트')
       axios.post(`http://localhost:8080/users/join`,
       {
-        "name" : "해솔",
-        "userName": "ssol",
+        "name" : "ssol",
+        "id": "ssol",
         "password": "1234",
-        "email" : "age",
+        "email" : "wkdogthf@gmail.com",
         "age": "21",
         "birthday":"20120202",
         "gender": "M",

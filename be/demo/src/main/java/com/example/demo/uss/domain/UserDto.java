@@ -11,22 +11,22 @@ import lombok.Data;
 @Data
 public class UserDto implements Serializable{
     private static final long serialVersionUID = 1L;
-	private long userNo;
+	private long no;
 	private String name;
-	private String userName;
+	private String id;
 	private String password;
 	private String email;
 	private String age;
 	private String birthday;
 	private String gender;
-	private String regdate;
+	private String date;
 	private String phone;
 	
 	
 	public User toEntity(){
 		return User.builder()
 		.name(name).age(age)
-		.userName(userName).password(password).email(email).birthday(birthday)
+		.id(id).password(password).email(email).birthday(birthday)
 		.gender(gender).phone(phone)
 		.build();
 	}

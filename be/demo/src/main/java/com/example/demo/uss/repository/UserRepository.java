@@ -5,9 +5,7 @@ import java.util.*;
 
 import com.example.demo.uss.domain.User;
 
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.*;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
