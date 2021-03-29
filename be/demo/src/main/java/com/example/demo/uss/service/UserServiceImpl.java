@@ -70,7 +70,7 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     public User update(Long id, User newUser){
         User user = repository.findByNo(id);
         user.setEmail(newUser.getEmail());
-        
+
         return repository.save(user);
     }
 
@@ -78,5 +78,10 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     public User findByNo(Long id) {
         // TODO Auto-generated method stub
         return repository.findByNo(id);
+    }
+    @Transactional
+    public void delete(Long id){
+        User user = repository.findByNo(id);
+        repository.delete(user);
     }
 }

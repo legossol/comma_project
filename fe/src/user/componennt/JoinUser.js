@@ -10,7 +10,6 @@ const JoinUser = () =>{
     const [age, setAge] =useState('');
     const [birthday, setBirthday] =useState('');
     const [gender, setGender] =useState('');
-    const [date, setDate] =useState('');
     const [phone, setPhone] =useState('');
 
     const onChangeName = e =>{
@@ -34,9 +33,6 @@ const JoinUser = () =>{
     const onChangeGender = e =>{
         setGender(e.target.value);
     }
-    const onChangeDate = e =>{
-        setDate(e.target.value);
-    }
     const onChangePhone = e =>{
         setPhone(e.target.value);
     }
@@ -49,11 +45,10 @@ const JoinUser = () =>{
             email,
             birthday,
             gender,
-            date,
             phone
         })
-        .then( res => {
-          console.log(res)
+        .then(res => {
+          console.log(res.data)
           alert(`테스트 성공: ${JSON.stringify(res)}`)
         })
         .catch(err => {

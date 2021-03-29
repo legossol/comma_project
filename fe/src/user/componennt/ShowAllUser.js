@@ -14,7 +14,18 @@ const ShowAllUser = () =>{
     };
     useEffect(() => {
         fetchList();
-    }, []);    
+    }, []);
+    const deleteUser = (e) =>{
+        e.preventDefault();
+        axios.delete('http://localhost:8080/users/list')
+        .then(res=>{
+            console.log(res.data);
+            this.setState({deleteMsg: "삭제성공"})
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
    return users.map((user) => {
         return (
             <table>
@@ -47,6 +58,10 @@ const ShowAllUser = () =>{
                         <td>{user.phone}</td>
                     </tr>
                 </tbody>
+                <tfoot>
+                    <button>수 정</button>
+                    <button onClick={deleteUser}>삭 제</button>
+                </tfoot>
             </table>
         );
     });
