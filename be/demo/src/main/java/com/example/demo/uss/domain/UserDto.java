@@ -25,6 +25,7 @@ public class UserDto implements Serializable{
 	
 	public User toEntity(){
 		return User.builder()
+		.no(no)
 		.name(name).age(age)
 		.id(id).password(password).email(email).birthday(birthday)
 		.gender(gender).phone(phone)

@@ -6,6 +6,5 @@ import com.example.demo.uss.domain.User;
 import com.example.demo.uss.domain.UserDto;;
 
 public interface UserService {
-
-	List<User> findUserAll();
+	public User findByNo(Long id);
 }
