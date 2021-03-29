@@ -17,14 +17,41 @@ const ShowAllUser = () =>{
     }, []);
     const deleteUser = (e) =>{
         e.preventDefault();
-        axios.delete('http://localhost:8080/users/list')
+        axios.delete('http://localhost:8080/users/list' + e)
         .then(res=>{
             console.log(res.data);
-            this.setState({deleteMsg: "삭제성공"})
+            alert.success('계정삭제 성공')
+            fetchList();
         })
         .catch((err)=>{
             console.log(err);
+            alert.error('계정삭제에 실패했습니다')
         })
+    }
+    const saveUser = e =>{
+        e.preventDefault();
+        axios.post("/users/list", users)
+            .then(res=>{
+                console.log("계정생성 성공")
+                alert.success('Customer has been created')
+                clearForm();
+            })
+            .catch(err =>{
+                console.log("게정생성 실패")
+                alert.err('계정생성에 실패했습니다')
+            })
+    }
+    const clearForm =() =>{
+        const newForm ={
+            name:'',
+            id:'',
+            password:'',
+            age:'',
+            email:'',
+            birthday:'',
+            gender:'',
+            phone:''
+        }
     }
    return users.map((user) => {
         return (
@@ -60,7 +87,7 @@ const ShowAllUser = () =>{
                 </tbody>
                 <tfoot>
                     <button>수 정</button>
-                    <button onClick={deleteUser}>삭 제</button>
+                    <button onClick={() =>deleteUser(user.no)}>삭 제</button>
                 </tfoot>
             </table>
         );
