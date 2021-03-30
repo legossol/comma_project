@@ -31,9 +31,9 @@ const ShowAllUser = (props) =>{
         alert(err)
     })
     }
-    const deleteUser = (e) =>{
-        e.preventDefault();
-        axios.delete('http://localhost:8080/users/list' + e)
+    const deleteUser = (id) =>{
+        id.preventDefault();
+        axios.delete('http://localhost:8080/users/list' + id)
         .then(res=>{
             console.log(res.data);
             alert.success('계정삭제 성공')
@@ -56,6 +56,10 @@ const ShowAllUser = (props) =>{
                 console.log("게정생성 실패")
                 alert.err('계정생성에 실패했습니다')
             })
+    }
+    const goToEdit = (id) =>{
+        window.localStorage.setItem("no",id);
+        this.props.history.push('/edit')
     }
     const clearForm =() =>{
         const newForm ={
@@ -106,7 +110,7 @@ const ShowAllUser = (props) =>{
                     </tr>
                 </tbody>
                 <tfoot>
-                    <button onClick={update}>수 정</button>
+                    <button onClick={() =>this.goToEdit(user.id)}>수 정</button>
                     <button onClick={() =>props.deleteUser(user)}>삭 제</button>
                 </tfoot>
             </table>

@@ -5,11 +5,14 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom'
 import ShowAllUser from './user/componennt/ShowAllUser'
 import JoinUser from './user/componennt/JoinUser';
+import EditUser from './user/componennt/EditUser';
+import CheckDup from './user/componennt/CheckDup';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <JoinUser/>
     <ShowAllUser/>
+      <EditUser/>
+      <CheckDup/>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
