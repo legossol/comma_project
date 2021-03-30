@@ -52,20 +52,15 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     @Override
     public User getOne(long id) {
         // TODO Auto-generated method stub
-        return null;
+        return repository.findByNo(id);
     }
 
     @Override
     public User save(User entity) {
         // TODO Auto-generated method stub
-        return null;
+        return repository.save(entity);
     }
 
-    @Override
-    public void findById(long id) {
-        // TODO Auto-generated method stub
-        
-    }
     @Transactional
     public User update(Long id, User newUser){
         User user = repository.findByNo(id);
@@ -81,7 +76,30 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     }
     @Transactional
     public void delete(Long id){
-        User user = repository.findByNo(id);
-        repository.delete(user);
+        repository.deleteById(id);
+    }
+     @Override
+       public void updateById(Long no,User user) {
+
+             User e = repository.findUserById(no);
+
+             e.setEmail(user.getEmail());
+
+             e.setName(user.getName());
+
+             repository.save(user);
+
+       }
+
+    @Override
+    public User findById(long id) {
+        
+        return null;
+    }
+
+    @Override
+    public User findUserById(Long no) {
+        User user = repository.findById(no).orElseThrow();
+        return user;
     }
 }

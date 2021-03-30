@@ -38,19 +38,22 @@ public class UserController {
     public List<User> getUserList() {
         return service.findAll();
     }
-    @GetMapping("/list/{id}")
-    public User getUser(@PathVariable("id")Long id){
-        return service.findByNo(id);
+    @GetMapping("/list/{no}")
+    public ResponseEntity<User> getUser(@PathVariable("no")Long no){
+        return new ResponseEntity<User>(service.findById(no),HttpStatus.OK);
     }
 
-    @PutMapping("/list/{id}")
-    public User editUser(@PathVariable Long no, @RequestBody User user) {
-        
-        return service.update(no, user);
-    }
-    @DeleteMapping("/list/{id}")
-    public void deleteUser(@PathVariable("id") Long id){
-        service.delete(id);
+    @PutMapping("/list/{no}")
+       public ResponseEntity<User> updateUser(@PathVariable("no") Long no, @RequestBody User user) {
+
+             service.updateById(no, user);
+
+             return new ResponseEntity<User>(user, HttpStatus.OK);
+       }
+    @DeleteMapping("/list/{no}")
+    public ResponseEntity<Void> deleteUser(@PathVariable("no") Long no){
+        service.delete(no);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     
 }

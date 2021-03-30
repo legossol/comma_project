@@ -13,5 +13,5 @@ public abstract class AbstractService<T> {
     public abstract void deleteById(long id);
     public abstract T getOne(long id);
     public abstract User save(T entity);
-    public abstract void findById(long id);
+    public abstract User findById(long id);
 }

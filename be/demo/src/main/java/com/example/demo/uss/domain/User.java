@@ -71,8 +71,5 @@ public class User {
 		this.phone = phone;
 		this.no = no;
 		this.date = date;
-    }
-
-   
-
+	}
 }

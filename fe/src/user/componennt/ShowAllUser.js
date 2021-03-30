@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios'
 
-const ShowAllUser = () =>{
+const ShowAllUser = (props) =>{
     const [users, setUsers] = useState([])
     const fetchList = () => {
         axios
@@ -11,10 +11,26 @@ const ShowAllUser = () =>{
                 setUsers(res.data);
             })
             .catch((err) => console.log(err));
-    };
-    useEffect(() => {
-        fetchList();
-    }, []);
+    }
+   const update = () =>{
+    axios.post(`http://localhost:8080/users/list/${props.match.params.id = 2}`,{
+    "no":2,
+    "name":"진욱",
+    "id":"wlsdnr12",
+    "password":"123",
+    "age":"1",
+    "email":"1",
+    "birthday":"1",
+    "gender":"1",
+    "phone":"1"})
+    .then((res) =>{
+        console.log(res)
+        alert(res.data)
+    })
+    .catch(err => {
+        alert(err)
+    })
+    }
     const deleteUser = (e) =>{
         e.preventDefault();
         axios.delete('http://localhost:8080/users/list' + e)
@@ -43,6 +59,7 @@ const ShowAllUser = () =>{
     }
     const clearForm =() =>{
         const newForm ={
+            no:'',
             name:'',
             id:'',
             password:'',
@@ -53,6 +70,9 @@ const ShowAllUser = () =>{
             phone:''
         }
     }
+    useEffect(() => {
+        fetchList();
+    }, []);
    return users.map((user) => {
         return (
             <table>
@@ -86,8 +106,8 @@ const ShowAllUser = () =>{
                     </tr>
                 </tbody>
                 <tfoot>
-                    <button>수 정</button>
-                    <button onClick={() =>deleteUser(user.no)}>삭 제</button>
+                    <button onClick={update}>수 정</button>
+                    <button onClick={() =>props.deleteUser(user)}>삭 제</button>
                 </tfoot>
             </table>
         );
