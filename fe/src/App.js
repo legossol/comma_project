@@ -1,19 +1,19 @@
 
-// import axios from 'axios';
-// import { useEffect, useState } from 'react';
-// const App =()=> {
-//   const [ip, setIp] = useState('');
-//   const callback = (data) =>{setIp(data)}
-//   useEffect(() => {
-//     customAxios('/ip', callback);
-// },[]
-//   );
-// return(
-//   <div>
-//     <header>
-//       이 기기의 ip주소는 {ip}입니다.
-//     </header>
-//   </div>
-// );
-// }
-// export default App;
+ import React from 'react'
+ import {Link, Route} from 'react-router-dom'
+import EditUser from './user/componennt/EditUser'
+import JoinUser from './user/componennt/JoinUser'
+ import ShowAllUser from "./user/componennt/ShowAllUser"
+ 
+ const App =() =>{
+     
+     return(
+         <>
+         <Route path="/ShowAllUser" component={ShowAllUser}></Route>
+         <Route path="/EditUser/:id" component={EditUser}></Route>
+         <Route path="/`JoinUser" component={JoinUser}></Route>
+         <Route path="/EditUser/:id" component={}></Route>
+         </>
+     )
+ }
+ export default App
