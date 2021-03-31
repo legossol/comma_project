@@ -1,6 +1,6 @@
 
  import React from 'react'
- import {Link, Route} from 'react-router-dom'
+ import {Route} from 'react-router-dom'
 import EditUser from './user/componennt/EditUser'
 import JoinUser from './user/componennt/JoinUser'
  import ShowAllUser from "./user/componennt/ShowAllUser"
@@ -9,10 +9,9 @@ import JoinUser from './user/componennt/JoinUser'
      
      return(
          <>
-         <Route path="/ShowAllUser" component={ShowAllUser}></Route>
-         <Route path="/EditUser/:id" component={EditUser}></Route>
-         <Route path="/`JoinUser" component={JoinUser}></Route>
-         <Route path="/EditUser/:id" component={}></Route>
+         <Route path="/users/list" component={ShowAllUser}/>
+         <Route path="/users/:id" component={EditUser}/>
+         <Route path="/`JoinUser" component={JoinUser}/>
          </>
      )
  }

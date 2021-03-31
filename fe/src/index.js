@@ -3,16 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom'
-import ShowAllUser from './user/componennt/ShowAllUser'
-import JoinUser from './user/componennt/JoinUser';
-import EditUser from './user/componennt/EditUser';
-import CheckDup from './user/componennt/CheckDup';
+import App from './App';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <ShowAllUser/>
-      <EditUser/>
-      <CheckDup/>
+    <App/>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

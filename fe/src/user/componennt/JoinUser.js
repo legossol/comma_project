@@ -39,7 +39,7 @@ const JoinUser = () =>{
     const add = e => {
         axios.post(`http://localhost:8080/users/join`,{
             name,
-            id,
+            id,  
             password,
             age,
             email,
