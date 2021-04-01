@@ -12,7 +12,8 @@ import org.springframework.stereotype.Repository;
 
 public interface UserRepository extends JpaRepository<User, Long>{
     public User findByNo(@Param("no")Long no);
-   List<User> findAll();
+        List<User> findAll();
         User findUserById(Long no);
+        
    
 }

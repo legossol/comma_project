@@ -13,9 +13,9 @@ const App = () =>{
         <Link to={`/ShowAllUser`}><button>List</button></Link>
         <Route path="/ShowAllUser" component={ShowAllUser}/>
         <Route path="/ShowAllUserForm" component={ShowAllUserForm}/>
-        <Route path="/ReadUser" component={ReadUser}/>
+        <Route path="/ReadUser/:id" component={ReadUser}/>
         <Route path="/JoinUser" component={JoinUser}/>
-        <Route path="/EditUser" component={EditUser}/>
+        <Route path="/EditUser/:id" component={EditUser}/>
         
         </>
     )

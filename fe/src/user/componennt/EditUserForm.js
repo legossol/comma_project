@@ -69,6 +69,7 @@ const EditUserFrom = ({history}) => {
                         phone,
                 })
                 .then(res =>{
+
                     alert("변경해서 저장하기!",res)
                     window.location ='/ShowAllUser'
                 })

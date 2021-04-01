@@ -40,13 +40,15 @@ public class UserController {
     }
     @GetMapping("/{no}")
     public ResponseEntity<User> getUser(@PathVariable("no")Long no){
-        return new ResponseEntity<User>(service.findById(no),HttpStatus.OK);
+        return new ResponseEntity<User>(service.findUserById(no),HttpStatus.OK);
     }
 
     @PutMapping("/{no}")
        public ResponseEntity<User> updateUser(@PathVariable("no") Long no, @RequestBody User user) {
             System.out.println("update진입");
-             service.updateById(no, user);
+            user.getNo();
+            service.save(user);
+           
 
              return new ResponseEntity<User>(user, HttpStatus.OK);
        }
