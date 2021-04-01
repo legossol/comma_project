@@ -4,6 +4,7 @@ import java.util.*;
 import javax.servlet.http.HttpSession;
 
 import com.example.demo.uss.domain.User;
+import com.example.demo.uss.repository.UserRepository;
 import com.example.demo.uss.service.UserServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,16 +59,12 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PostMapping("/login/{userno}")
-    public  ResponseEntity<User> loginUser(@RequestBody User user, HttpSession session){
-        User result  = service.checkLogin(user);
-        if(result==null){
-            System.out.println("id나 pw가 틀렸거나 계정이 없습니다.");
-            
-        }else{
-            session.setAttribute("userName", result.getUsername());
-        }
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-    
+    @PostMapping("/login")
+	public ResponseEntity<?> doLogin(@RequestBody User user){
+		System.out.println("로그인 진입");
+		service.login(user);
+		
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+
 }

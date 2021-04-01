@@ -4,7 +4,7 @@ import ReadUser from "./ReadUser";
 
 const ShowAllUserForm = (props) => {
   console.log("ShowAllUserForm props:",JSON.stringify(props) )
-  console.log("ShowAllUserForm locationObject:",JSON.stringify(props) )
+  console.log("ShowAllUserForm locatiousernobject:",JSON.stringify(props) )
   
 
 
@@ -12,7 +12,7 @@ const ShowAllUserForm = (props) => {
     <table>
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th>userno</th>
                         <th>이름</th>
                         <th>아이디</th>
                         <th>비밀번호</th>
@@ -27,12 +27,12 @@ const ShowAllUserForm = (props) => {
                 <tbody>
                 {props.users.length > 0 ? (
                         props.users.map(user => {
-                            const {no, name, userName, password, email, age, birthday, gender,date, phone} = user;
+                            const {userno, name, username, password, email, age, birthday, gender,date, phone} = user;
                             return(
-                            <tr key={no}>
-                                <td>{no}</td>
+                            <tr key={userno}>
+                                <td>{userno}</td>
                             <td>{name}</td>
-                            <td>{userName}</td>
+                            <td>{username}</td>
                             <td>{password}</td>
                             <td>{email}</td>
                             <td>{age}</td>
@@ -41,9 +41,9 @@ const ShowAllUserForm = (props) => {
                             <td>{date}</td>
                             <td>{phone}</td>
                             <td>
-                              <Link to={`/ReadUser/${no}`} className="linkto-ShowAllUser">
+                              <Link to={`/ReadUser/${userno}`} className="linkto-ShowAllUser">
                               <button onClick={() => {
-                                        localStorage.setItem('no',`${no}`)
+                                        localStorage.setItem('userno',`${userno}`)
                                     }}>자세히보기</button>
                               </Link>
                             </td>
@@ -52,7 +52,7 @@ const ShowAllUserForm = (props) => {
       })
       ) : (
           <tr>
-              <td colSpan={9}>No User Found</td>
+              <td colSpan={9}>userno User Found</td>
           </tr>
           )
       }

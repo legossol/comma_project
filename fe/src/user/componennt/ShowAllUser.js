@@ -15,12 +15,12 @@ const ShowAllUser = (props) => {
     const [users, setUsers] = useState([]);
 
     const addUser = useCallback(user => {
-        user.no = users.length +1;
+        user.userno = users.length +1;
         setUsers([...users,user]);
       },[users]); 
 
-const deleteUser = useCallback( no => 
-  setUsers(users.filter( user =>user.no !== no)),
+const deleteUser = useCallback( userno => 
+  setUsers(users.filter( user =>user.userno !== userno)),
   [users]);
 
 

@@ -1,17 +1,51 @@
-import React, {useRef, useState,useCallback, useEffect} from 'react';
+import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
 const LoginForm = () =>{
     console.log("logIn form 진입:",JSON.stringify())
+    const [login, setLogin] = useState([]);
+    const { username, password } = login
+
+    const fetchUser = () => {
+        axios.get(`http://localhost:8080/users/list`)
+            .then((res) => {
+                console.log("유저들의 정보를 불러왔습니다",res.data);
+                setLogin(res.data);
+            })
+            .catch((err) => console.log(err));
+    };
+
+    useEffect(() => {
+        fetchUser();
+    }, []);
+
+    const handleChange = (e) => {
+        const { value, name } = e.target;
+        setLogin({
+            ...login,
+            [name]: value,
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios
+            .post(`http://localhost:8080/users/login`, { ...login })
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => console.log(err));
+    };
+
     
     return(
-            <form>
+            <form onSubmit={handleSubmit} method="post">
                 <div>
-                    <label for="loginId">아이디</label>
-                    <input type="text" id="loginId" name="userID" placeholder="ID"/>
-                    <label for="userID">비밀번호</label>
-                    <input type="text" id="loginPw" name="password" placeholder="Password"/>
+                    <label>아이디</label>
+                    <input type="text" value={username} id="loginId" name="username" placeholder="ID"onChange={handleChange}/>
+                    <label>비밀번호</label>
+                    <input type="text" value={password} id="loginPw" name="password" placeholder="Password"onChange={handleChange}/>
                 </div>
                
                
@@ -21,8 +55,8 @@ const LoginForm = () =>{
 
                 </div>
                 <button type="submit">로그인</button>
-                <Link to={`/ShowAllUser`}><button className="button-primary">Cancel</button> </Link>
-            </form>
+                <Link to={`/ShowAllUser`}><button>Cancel</button> </Link>
+            </form >
        
     )
 }

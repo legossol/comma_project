@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 const EditUserFrom = ({history}) => {
     console.log("EditUserFrom props:",JSON.stringify(history) )
-    const initialuser = {no: null,  name: '', userName: '', password: '', email: '', age: '',birthday: '', gender: '', phone:''};
+    const initialuser = {userno: null,  name: '', username: '', password: '', email: '', age: '',birthday: '', gender: '', phone:''};
     const [user, setUser] = useState(initialuser);
 
 
     const {
-        no,
+        userno,
         name,
-        userName,
+        username,
         password,
         age,
         email,
@@ -23,14 +23,14 @@ const EditUserFrom = ({history}) => {
 
 
     const updateUser = () =>{
-        axios.get(`http://localhost:8080/users/${localStorage.getItem('no')}`)
+        axios.get(`http://localhost:8080/users/${localStorage.getItem('userno')}`)
         .then(res =>{
             console.log("받아오기!",res)
             setUser({
                 ...user,
-                no: res.data.no,
+                userno: res.data.userno,
                 name: res.data.name,
-                userName:  res.data.userName,
+                username:  res.data.username,
                 password: res.data.password,
                 email: res.data.email,
                 age: res.data.age,
@@ -56,11 +56,11 @@ const EditUserFrom = ({history}) => {
 
     const handleSubmit = useCallback( e => {
         e.preventDefault();
-        if(user.name || user.userName  || user.password || user.email ||  user.age  ||  user.birthday  ||  user.gender  ||  user.phone) {
-                axios.put(`http://localhost:8080/users/${localStorage.getItem('no')}`,{
-                        no,
+        if(user.name || user.username  || user.password || user.email ||  user.age  ||  user.birthday  ||  user.gender  ||  user.phone) {
+                axios.put(`http://localhost:8080/users/${localStorage.getItem('userno')}`,{
+                        userno,
                         name, 
-                        userName,
+                        username,
                         password,  
                         email,
                         age,
@@ -82,7 +82,7 @@ const EditUserFrom = ({history}) => {
     },[
         
         name, 
-        userName,
+        username,
         password,  
         email,
         age,
@@ -106,7 +106,7 @@ const EditUserFrom = ({history}) => {
             <label>name</label>
             <input className="u-full-width" type="text" name="name" value={user.name || ""} onChange={handleChange} />
             <label>userID</label>
-            <input className="u-full-width" type="text" name="userName" value={user.userName || ""} onChange={handleChange} />
+            <input className="u-full-width" type="text" name="username" value={user.username || ""} onChange={handleChange} />
             <label>password</label>
             <input className="u-full-width" type="text" name="password" value={user.password || ""} onChange={handleChange} />
             <label>email</label>
