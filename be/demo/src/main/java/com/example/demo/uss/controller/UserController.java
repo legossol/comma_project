@@ -1,6 +1,8 @@
 package com.example.demo.uss.controller;
 import java.util.*;
 
+import javax.servlet.http.HttpSession;
+
 import com.example.demo.uss.domain.User;
 import com.example.demo.uss.service.UserServiceImpl;
 
@@ -13,9 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 
 
@@ -38,24 +38,36 @@ public class UserController {
     public List<User> getUserList() {
         return service.findAll();
     }
-    @GetMapping("/{no}")
-    public ResponseEntity<User> getUser(@PathVariable("no")Long no){
-        return new ResponseEntity<User>(service.findUserById(no),HttpStatus.OK);
+    @GetMapping("/{userno}")
+    public ResponseEntity<User> getUser(@PathVariable("userno")Long userno){
+        return new ResponseEntity<User>(service.findById(userno),HttpStatus.OK);
     }
 
-    @PutMapping("/{no}")
-       public ResponseEntity<User> updateUser(@PathVariable("no") Long no, @RequestBody User user) {
+    @PutMapping("/{userno}")
+       public ResponseEntity<User> updateUser(@PathVariable("userno") Long userno, @RequestBody User user) {
             System.out.println("update진입");
-            user.getNo();
+            user.getUserno();
             service.save(user);
            
 
              return new ResponseEntity<User>(user, HttpStatus.OK);
        }
-    @DeleteMapping("/{no}")
-    public ResponseEntity<Void> deleteUser(@PathVariable("no") Long no){
-        service.delete(no);
+    @DeleteMapping("/{userno}")
+    public ResponseEntity<Void> deleteUser(@PathVariable("userno") Long userno){
+        service.delete(userno);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PostMapping("/login/{userno}")
+    public  ResponseEntity<User> loginUser(@RequestBody User user, HttpSession session){
+        User result  = service.checkLogin(user);
+        if(result==null){
+            System.out.println("id나 pw가 틀렸거나 계정이 없습니다.");
+            
+        }else{
+            session.setAttribute("userName", result.getUsername());
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
     }
     
 }

@@ -6,11 +6,11 @@ const JoinUserForm = (props) => {
 
    
     
-    const initUser = { name: '', id: '', password: '', email: '',age: '',birthday: '', gender: '', phone:'',}
+    const initUser = { name: '', userName: '', password: '', email: '',age: '',birthday: '', gender: '', phone:'',}
 
     const [user, setUser] = useState(initUser);
 
-    const {name, id, password, email, age, birthday, gender, phone} = user
+    const {name, userName, password, email, age, birthday, gender, phone} = user
 
    
 
@@ -21,8 +21,8 @@ const JoinUserForm = (props) => {
 
 const handleSubmit =useCallback( e => {
     e.preventDefault();
-    if(user.name && user.id && user.password && user.email && user.age && user.birthday && user.gender && user.phone) { 
-        axios.post('http://localhost:8080/users/join',{name, id, password, email, age, birthday, gender, phone})
+    if(user.name && user.userName && user.password && user.email && user.age && user.birthday && user.gender && user.phone) { 
+        axios.post('http://localhost:8080/users/join',{name, userName, password, email, age, birthday, gender, phone})
         .then( res => {
             alert("등록이 되었음", res)
         window.location = '/ShowAllUser'
@@ -31,14 +31,14 @@ const handleSubmit =useCallback( e => {
         else{
             alert(" 모든 항목 작성하시오")
         }
-    },[name, id, password, email, age, birthday, gender, phone])
+    },[name, userName, password, email, age, birthday, gender, phone])
 
     return (<>
     <form onSubmit={handleSubmit} method={"post"}>
             <label>name</label>
             <input className="u-full-width" type="text" name="name" value={name} onChange={handleChange}/>
-            <label>id</label>
-            <input className="u-full-width" type="text" name="id" value={id} onChange={handleChange} />
+            <label>userID</label>
+            <input className="u-full-width" type="text" name="userName" value={userName} onChange={handleChange} />
             <label>passwod</label>
             <input className="u-full-width" type="text" name="password" value={password} onChange={handleChange} />
             <label>email</label>

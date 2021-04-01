@@ -14,4 +14,5 @@ public abstract class AbstractService<T> {
     public abstract T getOne(long id);
     public abstract User save(T entity);
     public abstract User findById(long id);
+    public abstract User checkLogin(T entity);
 }

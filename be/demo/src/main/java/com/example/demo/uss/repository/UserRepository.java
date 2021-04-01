@@ -2,6 +2,7 @@ package com.example.demo.uss.repository;
 
 
 import java.util.*;
+import java.util.function.BiPredicate;
 
 import com.example.demo.uss.domain.User;
 
@@ -11,9 +12,13 @@ import org.springframework.stereotype.Repository;
 
 
 public interface UserRepository extends JpaRepository<User, Long>{
-    public User findByNo(@Param("no")Long no);
         List<User> findAll();
-        User findUserById(Long no);
-        
-   
+
+   BiPredicate<User,User> checkUser = (n1,n2)-> n1.equals(n2);
+
+       @Query(value = "select u from user u where u.username = :username and u.password = :password")
+       List<User> findByUserName(
+           @Param("username") String username,
+           @Param("password") String password);
+
 }

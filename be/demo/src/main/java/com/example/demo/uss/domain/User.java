@@ -26,8 +26,8 @@ public class User {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "no")
-	private long no;
+	@Column(name = "userno")
+	private long userno;
 
 	@Column(name = "name")
 	private String name;
@@ -35,9 +35,9 @@ public class User {
 	@Column(name = "password")
 	private String password;
 
-	@Column(name = "id")
-	private String id;
-
+	@Column(name = "username")
+	private String username;
+	
 	@Column(name = "age")
 	private String age;
 
@@ -58,18 +58,18 @@ public class User {
 	private String phone;
 	
 	@Builder
-	public User(String name,String id, String password, String age ,
-	 String email, String birthday,String gender, String phone,Long no,LocalDateTime date){
+	public User(String name,String username, String password, String age ,
+	 String email, String birthday,String gender, String phone,Long userno,LocalDateTime date){
 		super();
 		this.name = name;
-		this.id = id;
+		this.username = username;
 		this.password = password;
 		this.email = email;
 		this.birthday = birthday;
 		this.gender = gender;
 		this.age = age;
 		this.phone = phone;
-		this.no = no;
+		this.userno = userno;
 		this.date = date;
 	}
 }

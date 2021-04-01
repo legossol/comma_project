@@ -21,7 +21,7 @@ const ReadUser = ({match}) => {
     useEffect(() => {
         fetchRead()
     }, []);
-    const initUser = { name: '', id: '', password: '', email: '',age: '',birthday: '', gender: '', phone:'',}
+    const initUser = { name: '', userName: '', password: '', email: '',age: '',birthday: '', gender: '', phone:'',}
     // const [editing, setEditing] = useState(false);
     const [currentUser, setCurrentUser] = useState(initUser);
 
@@ -56,6 +56,7 @@ const ReadUser = ({match}) => {
                 <tbody>
                             <tr key={user.no}>
                                 <td>{user.name}</td>
+                                <td>{user.userName}</td>
                                 <td>{user.password}</td>
                                 <td>{user.email}</td>
                                 <td>{user.age}</td>

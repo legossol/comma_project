@@ -11,9 +11,9 @@ import lombok.Data;
 @Data
 public class UserDto implements Serializable{
     private static final long serialVersionUID = 1L;
-	private long no;
+	private long userno;
 	private String name;
-	private String id;
+	private String username;
 	private String password;
 	private String email;
 	private String age;
@@ -25,9 +25,9 @@ public class UserDto implements Serializable{
 	
 	public User toEntity(){
 		return User.builder()
-		.no(no)
+		.userno(userno)
 		.name(name).age(age)
-		.id(id).password(password).email(email).birthday(birthday)
+		.username(username).password(password).email(email).birthday(birthday)
 		.gender(gender).phone(phone)
 		.build();
 	}

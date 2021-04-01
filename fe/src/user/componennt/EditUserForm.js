@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 const EditUserFrom = ({history}) => {
     console.log("EditUserFrom props:",JSON.stringify(history) )
-    const initialuser = {no: null,  name: '', id: '', password: '', email: '', age: '',birthday: '', gender: '', phone:''};
+    const initialuser = {no: null,  name: '', userName: '', password: '', email: '', age: '',birthday: '', gender: '', phone:''};
     const [user, setUser] = useState(initialuser);
 
 
     const {
         no,
         name,
-        id,
+        userName,
         password,
         age,
         email,
@@ -30,7 +30,7 @@ const EditUserFrom = ({history}) => {
                 ...user,
                 no: res.data.no,
                 name: res.data.name,
-                id:  res.data.id,
+                userName:  res.data.userName,
                 password: res.data.password,
                 email: res.data.email,
                 age: res.data.age,
@@ -56,11 +56,11 @@ const EditUserFrom = ({history}) => {
 
     const handleSubmit = useCallback( e => {
         e.preventDefault();
-        if(user.name || user.id  || user.password || user.email ||  user.age  ||  user.birthday  ||  user.gender  ||  user.phone) {
+        if(user.name || user.userName  || user.password || user.email ||  user.age  ||  user.birthday  ||  user.gender  ||  user.phone) {
                 axios.put(`http://localhost:8080/users/${localStorage.getItem('no')}`,{
                         no,
                         name, 
-                        id,
+                        userName,
                         password,  
                         email,
                         age,
@@ -82,7 +82,7 @@ const EditUserFrom = ({history}) => {
     },[
         
         name, 
-        id,
+        userName,
         password,  
         email,
         age,
@@ -105,8 +105,8 @@ const EditUserFrom = ({history}) => {
     <form >
             <label>name</label>
             <input className="u-full-width" type="text" name="name" value={user.name || ""} onChange={handleChange} />
-            <label>id</label>
-            <input className="u-full-width" type="text" name="id" value={user.id || ""} onChange={handleChange} />
+            <label>userID</label>
+            <input className="u-full-width" type="text" name="userName" value={user.userName || ""} onChange={handleChange} />
             <label>password</label>
             <input className="u-full-width" type="text" name="password" value={user.password || ""} onChange={handleChange} />
             <label>email</label>

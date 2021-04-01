@@ -27,12 +27,12 @@ const ShowAllUserForm = (props) => {
                 <tbody>
                 {props.users.length > 0 ? (
                         props.users.map(user => {
-                            const {no, name, id, password, email, age, birthday, gender,date, phone} = user;
+                            const {no, name, userName, password, email, age, birthday, gender,date, phone} = user;
                             return(
                             <tr key={no}>
                                 <td>{no}</td>
                             <td>{name}</td>
-                            <td>{id}</td>
+                            <td>{userName}</td>
                             <td>{password}</td>
                             <td>{email}</td>
                             <td>{age}</td>
