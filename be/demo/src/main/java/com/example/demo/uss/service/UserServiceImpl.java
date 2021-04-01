@@ -81,11 +81,7 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
      @Override
        public void updateById(Long no,User user) {
 
-             User e = repository.findUserById(no);
-
-             e.setEmail(user.getEmail());
-
-             e.setName(user.getName());
+             repository.findUserById(no);
 
              repository.save(user);
 
