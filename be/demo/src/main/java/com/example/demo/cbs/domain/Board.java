@@ -12,11 +12,12 @@ import lombok.*;
 @Entity
 @Getter
 @Table(name="campaign")
+@NoArgsConstructor
 public class Board {
 
     @Id
-    @Column(name = "cam_no")
-    private Long cmpNo;
+    @Column(name = "cno")
+    private Long cno;
     @Column(name = "title")
     private String title;
     @Column(name = "writer")
@@ -26,8 +27,8 @@ public class Board {
     
     
     @Builder
-    public Board(Long capNo, String title, String writer, String conetent){
-        this.cmpNo = cmpNo;
+    public Board(Long cno, String title, String writer, String conetent){
+        this.cno = cno;
         this.title = title;
         this.writer = title;
         this.content = content;

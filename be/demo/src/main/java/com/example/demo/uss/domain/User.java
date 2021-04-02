@@ -72,4 +72,5 @@ public class User {
 		this.userno = userno;
 		this.date = date;
 	}
+
 }

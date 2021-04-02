@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class BoardDto implements Serializable{
     private static final long serialVersionUID = 1L;
-    private long cmpNo;
+    private long cno;
     private String writer;
     private String title;
     private String content;

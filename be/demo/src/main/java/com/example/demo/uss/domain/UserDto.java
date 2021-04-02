@@ -31,6 +31,7 @@ public class UserDto implements Serializable{
 		.gender(gender).phone(phone)
 		.build();
 	}
+	
 }
 
 	

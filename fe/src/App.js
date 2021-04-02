@@ -17,6 +17,7 @@ const App = () =>{
         <Route path="/ReadUser/:id" component={ReadUser}/>
         <Route path="/JoinUser" component={JoinUser}/>
         <Route path="/EditUser/:id" component={EditUser}/>
+        <Route path="/Login/:username/:password" component={Login}/>
         <Route path="/Login" component={Login}/>
         </>
     )

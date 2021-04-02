@@ -8,4 +8,5 @@ import com.example.demo.uss.domain.UserDto;;
 
 public interface UserService {
 	public User login(String username, String password);
+	
 }

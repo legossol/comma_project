@@ -92,15 +92,6 @@ const EditUserFrom = ({history}) => {
         
         
 
-        
-
-    
-    
-
-   
-   
- 
-
     return (<> 
     <form >
             <label>name</label>

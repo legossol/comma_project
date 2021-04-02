@@ -2,6 +2,7 @@ package com.example.demo.cmm.service;
 
 import java.util.*;
 
+import com.example.demo.cbs.domain.Board;
 import com.example.demo.uss.domain.User;
 
 public abstract class AbstractService<T> {

@@ -14,5 +14,68 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class BoardServiceImpl {
+public class BoardServiceImpl extends AbstractService<Board> implements BoardService{
+
+    public final BoardRepo repo;
+
+    @Override
+    public long count() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public boolean existsById(long id) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public List<Board> findAll() {
+        // TODO Auto-generated method stub
+        return repo.findAll();
+    }
+
+    @Override
+    public Optional<Board> findOne() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void deleteById(long id) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public Board getOne(long id) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public User save(Board entity) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public User findById(long id) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public User checkLogin(Board entity) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Board createBoardOne(Board cno) {
+        // TODO Auto-generated method stub
+        return repo.createBoardOne(cno);
+    }
+    
 }

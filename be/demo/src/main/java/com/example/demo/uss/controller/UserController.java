@@ -1,6 +1,7 @@
 package com.example.demo.uss.controller;
 import java.util.*;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import com.example.demo.uss.domain.User;
@@ -30,6 +31,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @CrossOrigin(origins = "*")
 public class UserController {
     private final UserServiceImpl service;
+    
 
     @PostMapping("/join")
     public ResponseEntity<?> save(@RequestBody User user) throws Exception{
@@ -70,10 +72,20 @@ public class UserController {
 		
 		return new ResponseEntity<>(u, HttpStatus.OK);
 	}
-    @PutMapping("/login/{username}/{password}")
-    public ResponseEntity<User> putLogin(@PathVariable("username")String username, @PathVariable("password")String password , @RequestBody User user) {
+    // @PostMapping("/login")
+    // public ResponseEntity<User> postLogin(@RequestBody User user, HttpSession Session) {
         
-        User u = service.login(username,password);
-        return new ResponseEntity<User>(u, HttpStatus.OK);
-    }
+    //     User u = service.login(user.getUsername(),user.getPassword());
+    //     // if(u != null){
+    //     //     System.out.println("Login Seccess");
+    //     //     Session.setAttribute("userLoginInfo", u);
+    //     // }
+    //     if(u.equals(idcheck,pwcheck)){
+    //         System.out.println("이름 비번 같다ㅏ!!");
+    //     }else{  
+    //         System.out.println("뭔가 잘못됫다");
+
+    //     }
+    //     return new ResponseEntity<User>(u, HttpStatus.OK);
+    // }
 }

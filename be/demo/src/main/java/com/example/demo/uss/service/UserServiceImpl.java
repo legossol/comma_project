@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class UserServiceImpl extends AbstractService<User> implements UserService{
 
     private final UserRepository repository;
-
+    
 
     @Override
     public long count() {
@@ -84,7 +84,4 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     public User login(String username, String password){
         return repository.login(username, password);
     }
-    
-
-    
 }
