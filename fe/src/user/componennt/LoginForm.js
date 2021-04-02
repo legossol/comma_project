@@ -1,51 +1,64 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useCallback} from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
-const LoginForm = () =>{
-    console.log("logIn form 진입:",JSON.stringify())
-    const [login, setLogin] = useState([]);
+const LoginForm = (props) =>{
+    console.log("logIn form 진입:",JSON.stringify(props))
+    const tryLogin ={username:'',password:''}
+    const [login, setLogin] = useState({tryLogin});
     const { username, password } = login
 
-    const fetchUser = () => {
-        axios.get(`http://localhost:8080/users/list`)
+    const handleChange = useCallback( e => {
+        const {name, value} = e.target;
+        setLogin({...login, [name] : value});
+    },[login]); 
+
+    const inputIdPassword = () =>{
+        axios
+            .get(`http://localhost:8080/users/login/${localStorage.getItem('username')}/${localStorage.getItem('password')}`)
             .then((res) => {
-                console.log("유저들의 정보를 불러왔습니다",res.data);
-                setLogin(res.data);
+                setLogin({
+                    ...login,
+                    username: res.data.username,
+                    password: res.data.password
+                })
             })
             .catch((err) => console.log(err));
-    };
+    }
+    
+    const handleSubmit = useCallback(e => {
+        e.preventDefault();
+        if(login.username == username || login.password ==password){
+        axios.put(`http://localhost:8080/users/login/${localStorage.getItem('username')}/${localStorage.getItem('password')}`,{
+            username,
+            password    
+        })
+            .then((res) => {
+                alert("아이디비번 같음을 확인 완료 ",res)
+                window.location ="/auth"
+            })
+            .catch((err) => {
+            alert(err)
+            console.log("아이디 비번이 같지 않음")
+        })
+    }
+    },[
+        username,
+        password
+    ]);
 
     useEffect(() => {
-        fetchUser();
+        inputIdPassword();
     }, []);
 
-    const handleChange = (e) => {
-        const { value, name } = e.target;
-        setLogin({
-            ...login,
-            [name]: value,
-        });
-    };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        axios
-            .post(`http://localhost:8080/users/login`, { ...login })
-            .then((res) => {
-                console.log(res);
-            })
-            .catch((err) => console.log(err));
-    };
-
-    
     return(
-            <form onSubmit={handleSubmit} method="post">
+            <form onSubmit={handleSubmit} method="put">
                 <div>
                     <label>아이디</label>
-                    <input type="text" value={username} id="loginId" name="username" placeholder="ID"onChange={handleChange}/>
+                    <input type="text" value={login.username} name="username" placeholder="ID"onChange={handleChange}/>
                     <label>비밀번호</label>
-                    <input type="text" value={password} id="loginPw" name="password" placeholder="Password"onChange={handleChange}/>
+                    <input type="text" value={login.password} name="password" placeholder="Password"onChange={handleChange}/>
                 </div>
                
                

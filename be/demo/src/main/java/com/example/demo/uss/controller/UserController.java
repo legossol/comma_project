@@ -17,6 +17,10 @@ import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 
 
@@ -59,12 +63,17 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PostMapping("/login")
-	public ResponseEntity<?> doLogin(@RequestBody User user){
+    @GetMapping("/login/{username}/{password}")
+	public ResponseEntity<User> doLogin(@PathVariable("username")String username, @PathVariable("password")String password ){
 		System.out.println("로그인 진입");
-		service.login(user);
+		User u = service.login(username,password);
 		
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>(u, HttpStatus.OK);
 	}
-
+    @PutMapping("/login/{username}/{password}")
+    public ResponseEntity<User> putLogin(@PathVariable("username")String username, @PathVariable("password")String password , @RequestBody User user) {
+        
+        User u = service.login(username,password);
+        return new ResponseEntity<User>(u, HttpStatus.OK);
+    }
 }

@@ -7,5 +7,5 @@ import com.example.demo.uss.domain.User;
 import com.example.demo.uss.domain.UserDto;;
 
 public interface UserService {
-	public void login(User user);
+	public User login(String username, String password);
 }

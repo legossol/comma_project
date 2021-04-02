@@ -18,11 +18,8 @@ public interface UserRepository extends JpaRepository<User, Long>{
    BiPredicate<User,User> checkUser = (n1,n2)-> n1.equals(n2);
 
         @Transactional
-       @Query(value = "select userno, username, password from user u where u.username='username' and u.password ='password'",nativeQuery = true)
+       @Query(value = "select username, password from users where username= :username and password = :password",nativeQuery = true)
        public User login(
-           @Param("userno") long userno,
            @Param("username") String username,
            @Param("password") String password);
-        //    @Query(value="select user_id userNo, username, password from users where username='username' and password='password'", nativeQuery = true)
-        //    public User login(@Param("userNo") long userNo, @Param("username") String username, @Param("password") String password);
 }

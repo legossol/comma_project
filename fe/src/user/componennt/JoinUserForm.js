@@ -1,4 +1,4 @@
-import React, {useRef, useState,useCallback, useEffect} from 'react';
+import React, { useState,useCallback} from 'react';
 import axios from 'axios';
 
 const JoinUserForm = (props) => {
@@ -16,7 +16,8 @@ const JoinUserForm = (props) => {
 
     const handleChange = useCallback( e => {
         const {name, value} = e.target;
-        setUser({...user, [name]: value});
+        setUser({...user,
+             [name]: value});
             },[user]) 
 
 const handleSubmit =useCallback( e => {

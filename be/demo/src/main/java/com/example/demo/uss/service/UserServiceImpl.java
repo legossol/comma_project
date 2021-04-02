@@ -81,10 +81,9 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
         return entity;
     }
     @Override
-    public void login(User user){
-        repository.login(user.getUserno(),user.getUsername(), user.getPassword());
+    public User login(String username, String password){
+        return repository.login(username, password);
     }
-    // userRepo.login(user.getUserNo(), user.getUsername(),user.getPassword());
     
 
     
