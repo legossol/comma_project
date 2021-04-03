@@ -72,10 +72,17 @@ public class BoardServiceImpl extends AbstractService<Board> implements BoardSer
         return null;
     }
 
+
     @Override
-    public Board createBoardOne(Board cno) {
+    public Board createBoard(Board entity) {
         // TODO Auto-generated method stub
-        return repo.createBoardOne(cno);
+        return repo.save(entity);
+    }
+
+    @Override
+    public Board findBycno(long cno) {
+        Board board = repo.findById(cno).orElseThrow();
+        return board;
     }
     
 }

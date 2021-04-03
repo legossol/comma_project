@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import com.amazonaws.services.securityhub.model.Result;
+import com.example.demo.cbs.domain.Board;
 import com.example.demo.cmm.service.AbstractService;
 import com.example.demo.uss.domain.User;
 import com.example.demo.uss.repository.UserRepository;
@@ -83,5 +84,17 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     @Override
     public User login(String username, String password){
         return repository.login(username, password);
+    }
+
+    @Override
+    public Board createBoard(User entity) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Board findBycno(long id) {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

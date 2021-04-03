@@ -8,9 +8,8 @@ import com.example.demo.uss.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BoardRepo extends JpaRepository<Board,Long>{
-    List<Board> findAll();
 
-    Board createBoardOne(Board cno);
+
     
 
 }

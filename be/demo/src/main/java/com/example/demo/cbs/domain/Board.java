@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,11 +12,12 @@ import lombok.*;
 
 @Entity
 @Getter
-@Table(name="campaign")
 @NoArgsConstructor
+@Table(name="campaign")
 public class Board {
 
     @Id
+    @GeneratedValue
     @Column(name = "cno")
     private Long cno;
     @Column(name = "title")
