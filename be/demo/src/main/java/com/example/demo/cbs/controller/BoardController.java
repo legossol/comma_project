@@ -35,7 +35,7 @@ public class BoardController {
         System.out.println("list불러오는 컨트롤러 진입");
         return service.findAll();
     }
-    @PostMapping("/create/{writer}/{title}/{content}")
+    @GetMapping("/create/{writer}/{title}/{content}")
     public ResponseEntity<Board> testcreate(@PathVariable("writer")String writer,@PathVariable("title")String title,@PathVariable("content")String content, @RequestBody Board entity){
         service.createBoard(entity);
         return new ResponseEntity<Board>(entity, HttpStatus.OK);
