@@ -35,11 +35,6 @@ public class BoardController {
         System.out.println("list불러오는 컨트롤러 진입");
         return service.findAll();
     }
-    @GetMapping("/create/{writer}/{title}/{content}")
-    public ResponseEntity<Board> testcreate(@PathVariable("writer")String writer,@PathVariable("title")String title,@PathVariable("content")String content, @RequestBody Board entity){
-        service.createBoard(entity);
-        return new ResponseEntity<Board>(entity, HttpStatus.OK);
-    }
     @PostMapping("/create")
     public ResponseEntity<?> createCmp(@RequestBody Board board) throws Exception{
         System.out.println("create 컨트롤러 진입");
@@ -48,7 +43,7 @@ public class BoardController {
     } 
     @GetMapping("/{cno}")
     public ResponseEntity<Board> readBoard(@PathVariable("cno") Long cno) {
-        System.out.println("read 컨트롤러 진입");
+        System.out.println("read 컨트롤러");
         return new ResponseEntity<Board>(service.findBycno(cno),HttpStatus.OK);
     }
     
