@@ -32,12 +32,12 @@ public class BoardController {
 
     @GetMapping("/list")
     public List<Board> boardList(){
-        System.out.println("list불러오는 컨트롤러 진입");
+        System.out.println("list불러오는 컨트롤러 ");
         return service.findAll();
     }
     @PostMapping("/create")
     public ResponseEntity<?> createCmp(@RequestBody Board board) throws Exception{
-        System.out.println("create 컨트롤러 진입");
+        System.out.println("create 컨트롤러 ");
         service.createBoard(board);
         return new ResponseEntity<>(HttpStatus.OK);
     } 
