@@ -32,7 +32,7 @@ public class BoardController {
 
     @GetMapping("/list")
     public List<Board> boardList(){
-        System.out.println("list불러오는 컨트롤러 ");
+        System.out.println("list불러오는 컨트롤러 진ㅇ입");
         return service.findAll();
     }
     @PostMapping("/create")
