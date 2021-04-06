@@ -37,13 +37,13 @@ public class BoardController {
     }
     @PostMapping("/create")
     public ResponseEntity<?> createCmp(@RequestBody Board board) throws Exception{
-        System.out.println("create 컨트롤러 ");
+        System.out.println("create 컨트롤러 진입 ");
         service.createBoard(board);
         return new ResponseEntity<>(HttpStatus.OK);
     } 
     @GetMapping("/{cno}")
     public ResponseEntity<Board> readBoard(@PathVariable("cno") Long cno) {
-        System.out.println("read 컨트롤러");
+        System.out.println("read 컨트롤러 진입");
         return new ResponseEntity<Board>(service.findBycno(cno),HttpStatus.OK);
     }
     
