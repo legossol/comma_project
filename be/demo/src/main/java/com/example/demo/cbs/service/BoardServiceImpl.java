@@ -63,7 +63,7 @@ public class BoardServiceImpl extends AbstractService<Board> implements BoardSer
     @Override
     public User findById(long id) {
         // TODO Auto-generated method stub
-        return null;
+        return repo;
     }
 
     @Override
