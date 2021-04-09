@@ -7,3 +7,4 @@ const BoardList = (props) =>{
         </>
     )
 }
+export
