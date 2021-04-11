@@ -7,4 +7,4 @@ const BoardList = (props) =>{
         </>
     )
 }
-export de
+export default BoardList;
