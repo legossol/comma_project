@@ -20,19 +20,22 @@ public class Board {
     @GeneratedValue
     @Column(name = "cno")
     private Long cno;
-    @Column(name = "title")
-    private String title;
-    @Column(name = "writer")
-    private String writer;
-    @Column(name = "content")
-    private String content;
+    @Column(name = "des_city")
+    private String desCity;
+    @Column(name = "des_gu")
+    private String desGu;
+    @Column(name = "date")
+    private String date;
+    @Column(name = "purpose")
+    private String purpose;
     
     
     @Builder
-    public Board(Long cno, String title, String writer, String conetent){
+    public Board(Long cno, String desCity, String desGu, String date, String purpose){
         this.cno = cno;
-        this.title = title;
-        this.writer = title;
-        this.content = content;
+        this.desCity = desCity;
+        this.desGu = desGu;
+        this.date = date;
+        this.purpose = purpose;
     }
 }

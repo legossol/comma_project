@@ -11,9 +11,10 @@ import lombok.Data;
 public class BoardDto implements Serializable{
     private static final long serialVersionUID = 1L;
     private long cno;
-    private String writer;
-    private String title;
-    private String content;
+    private String desCity;
+    private String desGu;
+    private String date;
+    private String purpose;
 
     
 }
