@@ -1,7 +1,7 @@
 package com.example.demo.stream;
 
 import java.util.*;
-
+import com.example.demo.stream.*;
 
 public class DummyGenerator {
     public String makeName() {
@@ -42,27 +42,27 @@ public class DummyGenerator {
     public String makeUsername() {
         List<String> id = Arrays.asList("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split(""));
         shuffle(id);
+        id.subList(0,4);
+        //수정가능한 상태를 만들기위해서 stringbuffer를 쓴다.
+        StringBuffer sb = new StringBuffer();
+        for(int i = 0; i < 5; i++){
+            sb.append(id.get(i));
+        }
         id.subList(0, 4);
+        /*
+        * sb.insert(index, "<입력값>")
+        * sb.replace(index, sb.length(), "<대체값>")
+        * sb.delete(start-index, end-index)
+        * sb.deleteCharAt(index)
+         */
         return id.get(0);
     }
 
-    public String makeEmail() {
-        List<String> email = Arrays.asList("@test.com", "@gmail.com", "@naver.com");
-        shuffle(email);
-        return email.get(0);
-    }
-
-
     
-
-    public String makeGender() {
-        List<String> arr = Arrays.asList("M", "F");
-        shuffle(arr);
-        return arr.get(0);
-    }
 
     private void shuffle(List<String> arr) {
     }
+
 
 
 
