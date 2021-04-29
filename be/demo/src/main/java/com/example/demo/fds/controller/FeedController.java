@@ -10,50 +10,50 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-@RestController@RequiredArgsConstructor
+@RestController
 public class FeedController{
-    private final FeedsServiceImpl service;
-    @PostMapping("")
-    public ResponseEntity<Long> save(Feeds feed) {
-        return service.save(feed)
+    // private final FeedsServiceImpl service;
+    // @PostMapping("")
+    // public ResponseEntity<Long> save(Feeds feed) {
+    //     return service.save(feed)
         
-        return null;
-    }
+    //     return null;
+    // }
 
-    @Override
-    public ResponseEntity findById(long id) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    // @Override
+    // public ResponseEntity findById(long id) {
+    //     // TODO Auto-generated method stub
+    //     return null;
+    // }
 
-    @Override
-    public ResponseEntity findAll() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    // @Override
+    // public ResponseEntity findAll() {
+    //     // TODO Auto-generated method stub
+    //     return null;
+    // }
 
-    @Override
-    public ResponseEntity count() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    // @Override
+    // public ResponseEntity count() {
+    //     // TODO Auto-generated method stub
+    //     return null;
+    // }
 
-    @Override
-    public ResponseEntity getOne(long id) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    // @Override
+    // public ResponseEntity getOne(long id) {
+    //     // TODO Auto-generated method stub
+    //     return null;
+    // }
 
-    @Override
-    public ResponseEntity delete(Object t) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    // @Override
+    // public ResponseEntity delete(Object t) {
+    //     // TODO Auto-generated method stub
+    //     return null;
+    // }
 
-    @Override
-    public ResponseEntity existsById(long id) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    // @Override
+    // public ResponseEntity existsById(long id) {
+    //     // TODO Auto-generated method stub
+    //     return null;
+    // }
 
 }
