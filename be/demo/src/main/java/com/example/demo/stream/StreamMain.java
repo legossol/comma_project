@@ -72,7 +72,8 @@ public class StreamMain{
             System.out.println("메뉴 : 0,EXIT 1.학년오름차순 2.성적내림차순 3.이름오름차순 4.ID오름차순");
             switch(scan.nextInt()){
                 case 0: return;
-                case 1: ascGrade().forEach(System.out::println); break;
+                case 1: 
+                map.put();
                 case 2: descScore().forEach(System.out::println); break;
                 case 3: ascName().forEach(System.out::println); break;
                 case 4: ascUserName().forEach(System.out::println); 
